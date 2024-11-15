@@ -4,7 +4,7 @@ namespace Maths_Game
 {
     public class Menu
     {
-        public int runMenu()
+        public int runMainMenu()
         {
             Console.Clear();
             do
@@ -17,15 +17,40 @@ namespace Maths_Game
                 "5.  All\n" +
                 "6.  Exit\n");
 
-                var input = Console.ReadLine();
+                var operationInput = Console.ReadLine();
                 int value;
-                if (int.TryParse(input, out value))
+                if (int.TryParse(operationInput, out value))
                 {
                     if (value > 0 && value <= 6)
                     {
                         return value;
                     }
 
+                }
+                Console.Clear();
+                Console.WriteLine("Please enter a valid option.");
+            } while (true);
+        }
+
+        public int runDifficultyMenu()
+        {
+            Console.Clear();
+            do
+            {
+                Console.WriteLine("Please choose an option:\n" +
+                 "1.  Easy\n" +
+                 "2.  Medium\n" +
+                 "3.  Hard\n" +
+                 "4.  Back\n");
+
+                var difficultyInput = Console.ReadLine();
+                int value;
+                if (int.TryParse(difficultyInput, out value))
+                {
+                    if (value > 0 && value <= 4)
+                    {
+                        return value;
+                    }
                 }
                 Console.Clear();
                 Console.WriteLine("Please enter a valid option.");

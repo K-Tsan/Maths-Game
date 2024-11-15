@@ -4,7 +4,7 @@ using Maths_Game;
 
 namespace Maths_Game
 {
-    public enum Operation { Add = 1, Subtract = 2, Multiply = 3, Divide = 4, All = 5 }
+    public enum Operation { Add = 1, Sub = 2, Mult = 3, Div = 4, All = 5 }
     public enum Difficulty { Easy = 1, Medium = 2, Hard = 3 }
 
     public class Program
@@ -22,6 +22,10 @@ namespace Maths_Game
                 }
                 Operation operation = (Operation)operationOutput;
                 Difficulty difficulty = (Difficulty)difficultyOutput;
+
+                var questionGenerator = new Questions();
+
+                (string[] questionSet, int[] answerSet) = questionGenerator.generateQuestions(operation, difficulty);
 
                 Console.WriteLine($"{operation} {difficulty} has been picked.");
                 Console.WriteLine("Press any button to close");

@@ -20,6 +20,7 @@ namespace Maths_Game
                 {
                     continue;
                 }
+
                 Operation operation = (Operation)operationOutput;
                 Difficulty difficulty = (Difficulty)difficultyOutput;
 
@@ -27,10 +28,8 @@ namespace Maths_Game
 
                 (string[] questionSet, int[] answerSet) = questionGenerator.generateQuestions(operation, difficulty);
 
-                for(int i=0; i<10; i++)
-                {
-                    Console.WriteLine($"{questionSet[i]} = {answerSet[i]}");
-                }
+                var mathsGame = new Game();
+                mathsGame.runGame(questionSet, answerSet);
 
                 Console.WriteLine($"{operation} {difficulty} has been picked.");
                 Console.WriteLine("Press any button to close");

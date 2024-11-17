@@ -24,7 +24,7 @@ namespace Maths_Game
                     if (value > 0 && value <= 6)
                     {
                         return value;
-                    }
+                    } 
 
                 }
                 Console.Clear();

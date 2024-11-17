@@ -15,6 +15,12 @@ namespace Maths_Game
             {
                 var menu = new Menu();
                 var operationOutput = menu.runMainMenu();
+                if (operationOutput == 6) 
+                {
+                    Console.WriteLine("Exiting, press any key.");
+                    Console.ReadKey();
+                    break;
+                }
                 var difficultyOutput = menu.runDifficultyMenu();
                 if (difficultyOutput == 4)
                 {

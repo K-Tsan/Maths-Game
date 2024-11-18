@@ -4,9 +4,11 @@ namespace Maths_Game
 {
     public class Game
     {
+        private List<string[]> pastGames = new List<string[]>();
         public void runGame(string[] questionSet, int[] answerSet)
         {
             int score = 0;
+            var record = new string[questionSet.Length];
             for (int i = 0; i < questionSet.Length; i++)
             {
                 Console.Clear();
@@ -16,7 +18,10 @@ namespace Maths_Game
                 {
                     score++;
                 }
+                var result = isCorrect ? "Correct" : "Incorrect";
+                record[i] = $"Question: {questionSet[i],-10}| Answer: {answerSet[i], -4}| Given Answer: {userAnswer, -4}| {result}";
             }
+            pastGames.Add(record);
             Console.WriteLine($"Your score is {score}.");
         }
 
@@ -28,7 +33,7 @@ namespace Maths_Game
             {
                 Console.WriteLine(question);
                 var input = Console.ReadLine();
-                if (int.TryParse(input, out value))
+                if (int.TryParse(input, out value) && value<10000)
                 {
                     validInput = true;
                 }
@@ -39,6 +44,24 @@ namespace Maths_Game
                 }
             } while (validInput == false);
             return value;
+        }
+
+        public void displayPastGames()
+        {
+            var counter = 1;
+            if (pastGames.Count == 0)
+            {
+                Console.WriteLine("No records found.");
+                return;
+            }
+            foreach(string[] game in pastGames)
+            {
+                Console.WriteLine($"Game{counter++}:");
+                foreach(string record in game)
+                {
+                    Console.WriteLine(record);
+                }
+            }
         }
     }
 }

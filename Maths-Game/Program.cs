@@ -11,11 +11,20 @@ namespace Maths_Game
     {
         public static void Main(string[] args)
         {
+            var mathsGame = new Game();
+            var menu = new Menu();
             do
             {
-                var menu = new Menu();
                 var operationOutput = menu.runMainMenu();
-                if (operationOutput == 6) 
+                if (operationOutput == 6)
+                {
+                    Console.Clear();
+                    mathsGame.displayPastGames();
+                    Console.WriteLine("Press any key to return.");
+                    Console.ReadKey();
+                    continue;
+                }
+                if (operationOutput == 7) 
                 {
                     Console.WriteLine("Exiting, press any key.");
                     Console.ReadKey();
@@ -34,11 +43,9 @@ namespace Maths_Game
 
                 (string[] questionSet, int[] answerSet) = questionGenerator.generateQuestions(operation, difficulty);
 
-                var mathsGame = new Game();
                 mathsGame.runGame(questionSet, answerSet);
 
-                Console.WriteLine($"{operation} {difficulty} has been picked.");
-                Console.WriteLine("Press any button to close");
+                Console.WriteLine("Returning to menu, press any key to continue");
                 Console.ReadKey();
             } while (true);
         }

@@ -15,13 +15,14 @@ namespace Maths_Game
                 "3.  Multiplication\n" +
                 "4.  Division\n" +
                 "5.  All\n" +
-                "6.  Exit\n");
+                "6.  Display past games\n" +
+                "7.  Exit\n");
 
                 var operationInput = Console.ReadLine();
                 int value;
                 if (int.TryParse(operationInput, out value))
                 {
-                    if (value > 0 && value <= 6)
+                    if (value > 0 && value <= 7)
                     {
                         return value;
                     } 

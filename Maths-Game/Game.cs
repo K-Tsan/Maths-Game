@@ -22,6 +22,7 @@ namespace Maths_Game
                 record[i] = $"Question: {questionSet[i],-10}| Answer: {answerSet[i], -4}| Given Answer: {userAnswer, -4}| {result}";
             }
             pastGames.Add(record);
+            Console.Clear();
             Console.WriteLine($"Your score is {score}.");
         }
 
@@ -33,7 +34,7 @@ namespace Maths_Game
             {
                 Console.WriteLine(question);
                 var input = Console.ReadLine();
-                if (int.TryParse(input, out value) && value<10000)
+                if (int.TryParse(input, out value) && value<10000 && value>=0)
                 {
                     validInput = true;
                 }

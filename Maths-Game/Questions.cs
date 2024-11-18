@@ -119,12 +119,13 @@ namespace Maths_Game
             }
 
             string newQuestion = $"{v2} - {v1}";
+            int newAnswer = v2 - v1;
             if (v1 > v2)
             {
                 newQuestion = $"{v1} - {v2}";
+                newAnswer = v1 - v2;
             }
           
-            int newAnswer = v1 - v2;
             return (subQuestion: newQuestion, subAnswer: newAnswer);
         }
 

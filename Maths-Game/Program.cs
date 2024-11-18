@@ -54,7 +54,7 @@ namespace Maths_Game
 
                 timer.Stop();
 
-                Console.WriteLine($"Time elapsed: {timer.ToString()}\nReturning to menu, press any key to continue");
+                Console.WriteLine($"Time elapsed: {timer.ToString()}\nReturning to menu, press any key to continue.");
                 Console.ReadKey();
             } while (true);
         }

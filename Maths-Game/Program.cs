@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using Maths_Game;
 
 namespace Maths_Game
@@ -13,6 +14,7 @@ namespace Maths_Game
         {
             var mathsGame = new Game();
             var menu = new Menu();
+            var timer = new Stopwatch();
             do
             {
                 var operationOutput = menu.runMainMenu();
@@ -38,14 +40,21 @@ namespace Maths_Game
 
                 Operation operation = (Operation)operationOutput;
                 Difficulty difficulty = (Difficulty)difficultyOutput;
-
                 var questionGenerator = new Questions();
-
                 (string[] questionSet, int[] answerSet) = questionGenerator.generateQuestions(operation, difficulty);
+
+                Console.Clear();
+                Console.WriteLine("10 questions will be displayed one at a time\nPress any key to begin.");
+                Console.ReadKey();
+
+                timer.Reset();
+                timer.Start();
 
                 mathsGame.runGame(questionSet, answerSet);
 
-                Console.WriteLine("Returning to menu, press any key to continue");
+                timer.Stop();
+
+                Console.WriteLine($"Time elapsed: {timer.ToString()}\nReturning to menu, press any key to continue");
                 Console.ReadKey();
             } while (true);
         }
